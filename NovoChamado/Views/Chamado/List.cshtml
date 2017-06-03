@@ -1,0 +1,58 @@
+﻿@model IEnumerable<NovoChamado.Models.ChamadoModel>
+
+@{
+    ViewBag.Title = "Lista de chamados";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List</h2>
+
+<p>
+    @Html.ActionLink("Cadastro de chamado", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idChamado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tituloChamado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.obsChamado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dtChamado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idChamado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tituloChamado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.obsChamado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dtChamado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Detalhes", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Deletar", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
